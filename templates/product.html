@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% if current_user.is_authenticated %}
+
+<div class="container">
+    <h2 id="symptomform">Symptoms Input Form</h2>
+    <form method="POST" action="/result1/{{name}}/{{age}}/{{sex}}/{{phoneno}}/{{aadhar}}/{{bloodg}}/{{weight}}/{{height}}/{{bloodp}}/{{bloodsl}}/{{bmi}}">
+        <div class="form-group">
+            <label for="symptom1">Symptom 1:</label>
+            <input type="text" id="symptom1" name="symptom1" required>
+        </div>
+        <div class="form-group">
+            <label for="symptom2">Symptom 2:</label>
+            <input type="text" id="symptom2" name="symptom2" required>
+        </div>
+        <div class="form-group">
+            <label for="symptom3">Symptom 3:</label>
+            <input type="text" id="symptom3" name="symptom3" required>
+        </div>
+        <div class="form-group">
+            <label for="symptom4">Symptom 4:</label>
+            <input type="text" id="symptom4" name="symptom4" required>
+        </div>
+        <div class="form-group">
+            <label for="symptom5">Symptom 5:</label>
+            <input type="text" id="symptom5" name="symptom5" required>
+        </div>
+        <input type="submit" value="Submit" id="formsubmit">
+    </form>
+</div>
+
+
+{% else %}
+<div class="confirm-box">
+    <div class="message-box">
+        <p>Please Login before using the product </p>
+        <a href="/login"><button type="submit" name="response" value="no" id="login-button">Login Here</button></a>
+    </div>
+</div>
+{% endif %}
+
+<script> 
+    $( function() { 
+      var availableTags = [ 
+          {% for symptom in symptoms %} 
+              "{{symptom}}", 
+          {% endfor %} 
+      ]; 
+      $( "#symptom1" ).autocomplete({ 
+        source: availableTags 
+      });
+    } );
+    $( function() { 
+      var availableTags = [ 
+          {% for symptom in symptoms %} 
+              "{{symptom}}", 
+          {% endfor %} 
+      ]; 
+      $( "#symptom2" ).autocomplete({ 
+        source: availableTags 
+      });
+    } );
+    $( function() { 
+      var availableTags = [ 
+          {% for symptom in symptoms %} 
+              "{{symptom}}", 
+          {% endfor %} 
+      ]; 
+      $( "#symptom3" ).autocomplete({ 
+        source: availableTags 
+      });
+    } ); 
+    $( function() { 
+      var availableTags = [ 
+          {% for symptom in symptoms %} 
+              "{{symptom}}", 
+          {% endfor %} 
+      ]; 
+      $( "#symptom4" ).autocomplete({ 
+        source: availableTags 
+      });
+    } ); 
+    $( function() { 
+      var availableTags = [ 
+          {% for symptom in symptoms %} 
+              "{{symptom}}", 
+          {% endfor %} 
+      ]; 
+      $( "#symptom5" ).autocomplete({ 
+        source: availableTags 
+      });
+    } ); 
+    </script>
+
+{% endblock %}

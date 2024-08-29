@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="confirm-box">
+    <div class="message-box">
+        <p>Are you sure you want to log out? </p>
+        <form action="/logout" method="post">
+            <button type="submit" name="response" value="yes" id="yes">Yes</button>
+            <button type="submit" name="response" value="no" id="no">No</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
